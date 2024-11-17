@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM golang:1.19
+FROM golang:1.23
 
 WORKDIR /app
 
@@ -9,8 +9,8 @@ RUN go mod download
 
 COPY *.go ./
 
-RUN CGO_ENABLED=0 GOOS=linux go build -o /go-url-short
+RUN CGO_ENABLED=0 GOOS=linux go build -o go-url-short
 
 EXPOSE 8081
 
-CMD [ "go-url-short" ]
+CMD [ "./go-url-short" ]
